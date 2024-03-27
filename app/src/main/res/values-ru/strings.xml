@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Кинопоиск</string>
+    <string name="premiers">Премьеры</string>
+    <string name="all">Все</string>
+    <string name="popular">Топ Популярных</string>
+    <string name="TOP250">ТОП 250</string>
+    <string name="Actor">В фильме снимались</string>
+    <string name="PersonJob">Над фильмом работали</string>
+    <string name="Gallery">Галерея</string>
+    <string name="SimilarFilms">Похожие фильмы</string>
+    <string name="add_in_collection">Добавить в коллекцию</string>
+    <string name="the_best">Лушее</string>
+    <string name="filmography">Фильмография</string>
+    <string name="to_the_list">К списку</string>
+    <plurals name="filmographyCount">
+        <item quantity="one">%d фильм</item>
+        <item quantity="few">%d фильма</item>
+        <item quantity="many">%d фильмов</item>
+        <item quantity="other">%d фильмов</item>
+    </plurals>
+    <string name="setting_search">Настройки поиска</string>
+    <string name="show">Показывать</string>
+    <string name="country">Страна</string>
+    <string name="genre">Жанр</string>
+    <string name="year">Год</string>
+    <string name="rating">Рэйтинг</string>
+    <string name="any">Любой</string>
+</resources>

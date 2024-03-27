@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+
+
+
+    <fragment
+        android:id="@+id/searchItem"
+        android:name="com.roman.finalkinopoisk.presentation.search.SearchFragment"
+        android:label="fragment_main"
+      >
+        <action
+            android:id="@+id/action_searchItem_to_searchSettingFragment"
+            app:destination="@id/searchSettingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileItem"
+        android:name="com.roman.finalkinopoisk.presentation.ProfileFragment"
+        android:label="fragment_main"
+        />
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.roman.finalkinopoisk.presentation.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_filmPage"
+            app:destination="@id/filmPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmPage"
+        android:name="com.roman.finalkinopoisk.presentation.FilmPageFragment"
+        android:label="film_page"
+        tools:layout="@layout/fragment_film_page" >
+        <action
+            android:id="@+id/action_filmPage_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_filmPage_to_staffPageFragment"
+            app:destination="@id/staffPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffPageFragment"
+        android:name="com.roman.finalkinopoisk.presentation.StaffPageFragment"
+        android:label="fragment_staff_page"
+        tools:layout="@layout/fragment_staff_page" >
+        <action
+            android:id="@+id/action_staffPageFragment_to_filmPage"
+            app:destination="@id/filmPage" />
+        <action
+            android:id="@+id/action_staffPageFragment_to_filmographyFragment"
+            app:destination="@id/filmographyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmographyFragment"
+        android:name="com.roman.finalkinopoisk.presentation.FilmographyFragment"
+        android:label="fragment_filmography"
+        tools:layout="@layout/fragment_filmography" >
+        <action
+            android:id="@+id/action_filmographyFragment_to_filmPage"
+            app:destination="@id/filmPage"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/searchSettingFragment"
+        android:name="com.roman.finalkinopoisk.presentation.search.SearchSettingFragment"
+        android:label="fragment_search_setting"
+        tools:layout="@layout/fragment_search_setting" />
+</navigation>

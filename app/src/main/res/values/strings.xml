@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Кинопоиск</string>
+    <string name="premiers">Премьеры</string>
+    <string name="all">Все</string>
+    <string name="popular">Топ Популярных</string>
+    <string name="TOP250">ТОП 250</string>
+    <string name="Actor">В фильме снимались</string>
+    <string name="PersonJob">Над фильмом работали</string>
+    <string name="Gallery">Галерея</string>
+    <string name="SimilarFilms">Похожие фильмы</string>
+    <string name="add_in_collection">Добавить в коллекцию</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="the_best">The best</string>
+    <string name="filmography">Filmography</string>
+    <string name="to_the_list">To the list</string>
+    <plurals name="filmographyCount">
+        <item quantity="one">%d film</item>
+        <item quantity="few">%d films</item>
+        <item quantity="many">%d films</item>
+        <item quantity="other">%d films</item>
+    </plurals>
+    <string name="setting_search">Setting search</string>
+    <string name="show">Show</string>
+    <string name="country">Country</string>
+    <string name="genre">Genre</string>
+    <string name="year">Year</string>
+    <string name="rating">Rating</string>
+    <string name="any">Any</string>
+</resources>
