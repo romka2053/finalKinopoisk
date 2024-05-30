@@ -1,50 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.FilmographyFragment">
+    tools:context=".presentation.filmography.FilmographyFragment">
 
     <!-- TODO: Update blank fragment layout -->
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <RelativeLayout
 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+          android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:src="@drawable/baseline_arrow_back_ios_24" />
+
+        <TextView
+            android:id="@+id/textView15"
+            style="@style/top_bar"
+            android:layout_toEndOf="@id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/filmography" />
+    </RelativeLayout>
+
+        <TextView
+        android:id="@+id/nameStaffFilmography"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/graphik_18sp_black_bold"
+        tools:text="TextView" />
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameStaffFilmography">
+        android:scrollbars="none">
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/filmsInFilmography"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+  />
 
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
 
-    <TextView
-        android:id="@+id/nameStaffFilmography"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

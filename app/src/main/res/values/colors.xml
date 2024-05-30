@@ -9,5 +9,17 @@
     <color name="white">#FFFFFFFF</color>
     <color name="rating">#3D3BFF</color>
     <color name="border_collection">#B5B5C9</color>
+    <color name="button_color">#3D3BFF</color>
+    <color name="checked_icon">#3D3BFF</color>
+    <color name="grey_text">#838390</color>
+
+    <color name="loader">#555555</color>
+    <color name="loader_text">#838383</color>
+    <color name="grey_1">#B5B5C9</color>
+    <color name="transparent">#00838383</color>
+    <color name="grey_2">#B5B5C9</color>
+    <color name="grey_3">#838391</color>
+
+
 
 </resources>

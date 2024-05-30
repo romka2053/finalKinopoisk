@@ -1,5 +1,6 @@
 package com.roman.finalkinopoisk.data
 
+import com.roman.finalkinopoisk.data.room.GenresAndCountriesDTO
 import com.roman.finalkinopoisk.entity.Films
 import com.roman.finalkinopoisk.entity.Staff
 import retrofit2.Retrofit
@@ -7,8 +8,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import retrofit2.http.*
 import javax.inject.Inject
+import javax.inject.Singleton
 
 private const val BASE_URL = "https://kinopoiskapiunofficial.tech/"
+@Singleton
 class PremiersDataSource  @Inject constructor(){
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -20,14 +23,16 @@ class PremiersDataSource  @Inject constructor(){
     val filmById:FilmByIdGet=retrofit.create(FilmByIdGet::class.java)
     val staffByFilmId:StaffByIdFilms=retrofit.create(StaffByIdFilms::class.java)
     val gallery:GalleryGet=retrofit.create(GalleryGet::class.java)
-    val similars:SimilarsGet=retrofit.create(SimilarsGet::class.java)
+    val similar:SimilarGet=retrofit.create(SimilarGet::class.java)
     val search:SearchGet=retrofit.create(SearchGet::class.java)
     val staffById:StaffById=retrofit.create(StaffById::class.java)
+    val genresAndCounties:GenresAndCountriesGet=retrofit.create(GenresAndCountriesGet::class.java)
+    val seasonsAndSeries:SeasonsAndSeriesGet=retrofit.create(SeasonsAndSeriesGet::class.java)
 
-
-    companion object {
-        private const val API_KEY2 = "4da99d7d-5320-40d1-bf0b-e7e2d92c920a"
-        private const val API_KEY="e2ec793d-8d7b-4a36-bd06-5a3962d8dbb5"
+    private companion object {
+        private const val API_KEY2= "4da99d7d-5320-40d1-bf0b-e7e2d92c920a"
+        private const val API_KEY3="e2ec793d-8d7b-4a36-bd06-5a3962d8dbb5"
+        private const val API_KEY="109757dd-5abd-4407-8678-31430b47a430"
     }
 
 
@@ -35,6 +40,16 @@ class PremiersDataSource  @Inject constructor(){
         @Headers("X-API-KEY: $API_KEY")
         @GET("/api/v2.2/films/collections?&=&type=TOP_POPULAR_ALL")
         suspend fun getPopularWherePage(@Query("page")page:Int?):FilmsListDto
+    }
+    interface SeasonsAndSeriesGet{
+        @Headers("X-API-KEY: $API_KEY")
+        @GET("api/v2.2/films/{id}/seasons")
+        suspend fun getSeasonsByFilmId(@Path("id")id:Int):SeasonsAndSeriesListDto
+    }
+    interface GenresAndCountriesGet{
+        @Headers("X-API-KEY: $API_KEY")
+        @GET("/api/v2.2/films/filters")
+        suspend fun getGenresAndCountries():GenresAndCountriesDTO
     }
 
     interface Top250MoviesGet{
@@ -68,10 +83,11 @@ class PremiersDataSource  @Inject constructor(){
         @GET("/api/v2.2/films/{idFilm}/images")
         suspend fun getGalleryWhereFilmId(@Path ("idFilm")idFilm:Int):GalleryListDto
     }
-    interface SimilarsGet{
+    interface SimilarGet{
         @Headers("X-API-KEY: $API_KEY")
         @GET("/api/v2.2/films/{idFilm}/similars")
-        suspend fun getSimilarsWhereFilmId(@Path ("idFilm")idFilm:Int):FilmsListDto
+        suspend fun getSimilarsWhereFilmId(@Path ("idFilm")idFilm:Int):FilmsSimilarListDto
+
     }
     interface SearchGet{
         @Headers("X-API-KEY: $API_KEY")

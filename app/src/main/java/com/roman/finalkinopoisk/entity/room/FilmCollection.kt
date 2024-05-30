@@ -5,12 +5,12 @@ import androidx.room.Entity
 
 @Entity(
     tableName = "film_collection",
-    primaryKeys = ["film_id","collection_id"]
+    primaryKeys = ["film_id","name_collection"]
 )
 data class FilmCollection (
     @ColumnInfo(name = "film_id")
     val film_id:Int,
-    @ColumnInfo(name = "collection_id")
-    val collection_id:Int,
+    @ColumnInfo(name = "name_collection")
+    val name_collection:String,
 
     )

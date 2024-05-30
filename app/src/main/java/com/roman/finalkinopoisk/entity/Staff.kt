@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.roman.finalkinopoisk.data.StaffFilmsInStaffDto
-import com.roman.finalkinopoisk.entity.room.FilmsWithСollections
 import com.roman.finalkinopoisk.presentation.ProfessionsKey
+import java.util.*
 
 @Entity(tableName = "staff")
 open class Staff(
@@ -22,7 +22,8 @@ open class Staff(
     open val posterUrl: String?,
     @ColumnInfo(name = "professionKey")
     open val professionKey: String?,
-
+    @ColumnInfo(name="dateSave")
+    open val dateSave:Long= Calendar.getInstance().timeInMillis,
     )
 
 interface StaffFull {
@@ -31,8 +32,13 @@ interface StaffFull {
     val nameEn: String?
     val posterUrl: String?
     val profession: String?
-    val films: List<StaffFilmsInStaffDto>
+    val films: List<FilmsInStaff>
+
 }
+class FilmographyStaff(
+    val nameRu: String?,
+    val mapKeyProfessionFilm: Map<ProfessionsKey, List<FilmsInStaff>>
+)
 
 interface FilmsInStaff {
     val filmId: Int
@@ -45,7 +51,7 @@ interface FilmsInStaff {
 data class StaffWithFilms(
      val staff: StaffFull,
     val filmsPopular: FilmsList,
-    val mapKeyProfessionFilm: Map<ProfessionsKey, List<FilmsInStaff>>
+
 ) {
 
 }

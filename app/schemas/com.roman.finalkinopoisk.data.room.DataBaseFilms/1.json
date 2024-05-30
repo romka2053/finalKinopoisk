@@ -2,21 +2,15 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "fdc27095ea2da3847ba65045bdeeaabc",
+    "identityHash": "36a920bb910b3d11c2d0b758b7535cb5",
     "entities": [
       {
         "tableName": "collection",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `edit` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name_collection` TEXT NOT NULL, `edit` INTEGER NOT NULL, `image` INTEGER NOT NULL, `image_active` INTEGER NOT NULL, `_count` INTEGER NOT NULL, PRIMARY KEY(`name_collection`))",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "name",
-            "columnName": "name",
+            "fieldPath": "name_collection",
+            "columnName": "name_collection",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -25,12 +19,30 @@
             "columnName": "edit",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "image",
+            "columnName": "image",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "image_active",
+            "columnName": "image_active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_count",
+            "columnName": "_count",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
-          "autoGenerate": true,
+          "autoGenerate": false,
           "columnNames": [
-            "id"
+            "name_collection"
           ]
         },
         "indices": [],
@@ -65,7 +77,7 @@
       },
       {
         "tableName": "staff",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `staffId` INTEGER NOT NULL, `nameRu` TEXT, `nameEn` TEXT, `posterUrl` TEXT, `professionKey` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `staffId` INTEGER NOT NULL, `nameRu` TEXT, `nameEn` TEXT, `posterUrl` TEXT, `professionKey` TEXT, `dateSave` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -102,6 +114,12 @@
             "columnName": "professionKey",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "dateSave",
+            "columnName": "dateSave",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -115,7 +133,7 @@
       },
       {
         "tableName": "films",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `year` INTEGER, `posterUrlPreview` TEXT, `nameRu` TEXT, `nameEn` TEXT, `rating` REAL, `description` TEXT, `shortDescription` TEXT, `posterUrl` TEXT, `genres` TEXT, `countries` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `year` INTEGER, `posterUrlPreview` TEXT, `nameRu` TEXT, `nameEn` TEXT, `rating` REAL, `description` TEXT, `shortDescription` TEXT, `posterUrl` TEXT, `genres` TEXT NOT NULL, `countries` TEXT, `type` INTEGER NOT NULL, `filmViewed` INTEGER NOT NULL, `dateSave` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -175,13 +193,31 @@
             "fieldPath": "genres",
             "columnName": "genres",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "countries",
             "columnName": "countries",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "serial",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "filmViewed",
+            "columnName": "filmViewed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateSave",
+            "columnName": "dateSave",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -195,7 +231,7 @@
       },
       {
         "tableName": "film_collection",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`film_id` INTEGER NOT NULL, `collection_id` INTEGER NOT NULL, PRIMARY KEY(`film_id`, `collection_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`film_id` INTEGER NOT NULL, `name_collection` TEXT NOT NULL, PRIMARY KEY(`film_id`, `name_collection`))",
         "fields": [
           {
             "fieldPath": "film_id",
@@ -204,9 +240,9 @@
             "notNull": true
           },
           {
-            "fieldPath": "collection_id",
-            "columnName": "collection_id",
-            "affinity": "INTEGER",
+            "fieldPath": "name_collection",
+            "columnName": "name_collection",
+            "affinity": "TEXT",
             "notNull": true
           }
         ],
@@ -214,7 +250,83 @@
           "autoGenerate": false,
           "columnNames": [
             "film_id",
-            "collection_id"
+            "name_collection"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "film_history",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `posterUrlPreview` TEXT, `nameRu` TEXT, `dateSave` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "posterUrlPreview",
+            "columnName": "posterUrlPreview",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nameRu",
+            "columnName": "nameRu",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateSave",
+            "columnName": "dateSave",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "staff_history",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nameRu` TEXT, `posterUrl` TEXT, `dateSave` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "Id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nameRu",
+            "columnName": "nameRu",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "posterUrl",
+            "columnName": "posterUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateSave",
+            "columnName": "dateSave",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
           ]
         },
         "indices": [],
@@ -224,7 +336,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fdc27095ea2da3847ba65045bdeeaabc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '36a920bb910b3d11c2d0b758b7535cb5')"
     ]
   }
 }

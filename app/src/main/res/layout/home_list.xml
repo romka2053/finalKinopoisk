@@ -9,9 +9,8 @@
         android:id="@+id/nameCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/graphik"
+ style="@style/graphik_18sp_black_bold"
         android:text="@string/premiers"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +20,9 @@
         android:id="@+id/allInCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/graphik"
+     style="@style/graphik_14sp_blue_bold"
         android:text="@string/all"
-        android:textSize="20sp"
+
         app:layout_constraintBottom_toBottomOf="@+id/nameCategory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/nameCategory" />

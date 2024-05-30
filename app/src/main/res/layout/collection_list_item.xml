@@ -13,29 +13,20 @@
         android:id="@+id/textView6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="gtrhry"
+        style="@style/graphik_16sp_black"
+        tools:text="gtrhry"
+        android:layout_marginStart="32dp"
         app:layout_constraintBottom_toBottomOf="@+id/checkBox2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toEndOf="@+id/checkBox2"
         app:layout_constraintTop_toTopOf="@+id/checkBox2" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:gravity="center"
-        android:visibility="invisible"
-        android:text="+"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <CheckBox
-
+android:layout_marginStart="26dp"
         android:id="@+id/checkBox2"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:button="@drawable/checkbox"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

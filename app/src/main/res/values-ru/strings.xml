@@ -18,6 +18,18 @@
         <item quantity="many">%d фильмов</item>
         <item quantity="other">%d фильмов</item>
     </plurals>
+    <plurals name="seasonsCount">
+        <item quantity="one">%d сезон</item>
+        <item quantity="few">%d сезона</item>
+        <item quantity="many">%d сезонов</item>
+        <item quantity="other">%d сезонов</item>
+    </plurals>
+    <plurals name="seriesCount">
+        <item quantity="one">%d серия</item>
+        <item quantity="few">%d серии</item>
+        <item quantity="many">%d серий</item>
+        <item quantity="other">%d серий</item>
+    </plurals>
     <string name="setting_search">Настройки поиска</string>
     <string name="show">Показывать</string>
     <string name="country">Страна</string>
@@ -25,4 +37,41 @@
     <string name="year">Год</string>
     <string name="rating">Рэйтинг</string>
     <string name="any">Любой</string>
+    <string name="save">Сохранить</string>
+    <string name="from">С</string>
+    <string name="to">По</string>
+    <string name="period_from">Искать в период с</string>
+    <string name="period_to">Искать в период по</string>
+    <string name="sorting">Сортировать</string>
+    <string name="no_viewed">Не просмотренно</string>
+    <string name="date_sort">Дата</string>
+    <string name="popular_sort">Популярность</string>
+    <string name="rating_sort">Рэйтинг</string>
+    <string name="viewed">Просмотрено</string>
+    <string name="collections">Коллекции</string>
+    <string name="create_collection">Создать свою коллекцию</string>
+    <string name="clear_history">Очистить историю</string>
+    <string name="show_all">Показать все</string>
+    <string name="were_you_interested">Вам было интересно</string>
+    <string name="not_element_in_collection">Нет элементов в коллекции</string>
+    <string name="name_new_collection_text">Придумайте название вашей новой коллекциии</string>
+    <string name="error">Ошибка</string>
+    <string name="error_massage">Во время обработки запроса произошла ошибка</string>
+    <string name="season_and_series">Сезоны и серии</string>
+    <string name="seasons">Сезоны</string>
+    <string name="episode">серия</string>
+    <string name="similar">Похожие</string>
+    <string name="gallery">Галерея</string>
+    <string name="delete_collection">Удаление коллекции</string>
+    <string name="delete_collection_text">Хотите удалить коллекцию ?</string>
+    <string name="delete_history">Очистить историю?</string>
+    <string name="delete_history_text">Хотите очистить историю просмотров ?</string>
+    <string name="input_country">Введите страну</string>
+    <string name="input_genre">Введите жанр</string>
+    <string name="films">Фильмы</string>
+    <string name="serials">Сериалы</string>
+    <string name="date">Дата</string>
+    <string name="films_actor">Фильмы,актёры,режисёры</string>
+    <string name="error_loading">Проверьте подключение е интернету</string>
+    <string name="replay">Повторить</string>
 </resources>

@@ -7,7 +7,7 @@
     android:id="@+id/film_preview"
     android:layout_width="111dp"
     android:layout_height="210dp"
-    android:layout_marginEnd="16dp"  >
+    android:layout_marginEnd="16dp">
 
 
     <TextView

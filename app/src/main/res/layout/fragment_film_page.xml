@@ -2,278 +2,406 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentFilmPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.FilmPageFragment"
-android:id="@+id/fragmentFilmPage"
- >
+    tools:context=".presentation.filmPage.FilmPageFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content">
 
-        >
-
-        <ImageView
-            android:id="@+id/bigPoster"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/fragment_page_load"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_max="400dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:text="TextView"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bigPoster" />
+            <com.elyeproj.loaderviewlibrary.LoaderImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:height_weight="0.8" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/staffActorListAdapter"
-            android:layout_width="0dp"
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:height_weight="0.8" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:height_weight="0.8" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:height_weight="0.8" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:height_weight="0.8" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:height_weight="0.8" />
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_page_main"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
             android:visibility="visible"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/actorText"
-            app:layout_constraintTop_toBottomOf="@+id/actorText"
-            app:spanCount="4" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/staffPersonJobListAdapter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintEnd_toEndOf="@+id/staffActorListAdapter"
-            app:layout_constraintStart_toStartOf="@+id/staffActorListAdapter"
-            app:layout_constraintTop_toBottomOf="@+id/personJobText"
-            app:spanCount="2" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/galleryListAdapter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="@+id/staffPersonJobListAdapter"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/staffPersonJobListAdapter"
-            app:layout_constraintTop_toBottomOf="@+id/galleryText"
-            app:spanCount="1" />
+            >
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/similarFilmsAdapter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="@+id/galleryListAdapter"
-            app:layout_constraintStart_toStartOf="@+id/galleryListAdapter"
-            app:layout_constraintTop_toBottomOf="@+id/similarFilms" />
 
-        <TextView
-            android:id="@+id/actorText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/graphik"
-            android:text="@string/Actor"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            <com.elyeproj.loaderviewlibrary.LoaderImageView
+                android:id="@+id/bigPoster"
+                android:layout_width="0dp"
+                android:layout_height="400dp"
+                android:scaleType="center"
+                app:custom_color="@color/loader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/personJobText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/graphik"
-            android:text="@string/PersonJob"
-            app:layout_constraintStart_toStartOf="@+id/staffActorListAdapter"
-            app:layout_constraintTop_toBottomOf="@+id/staffActorListAdapter" />
+            <TextView
+                android:id="@+id/textView"
+                style="@style/graphik_16sp_black_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                app:height_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bigPoster"
+                tools:text="TextView" />
 
-        <TextView
-            android:id="@+id/galleryText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/graphik"
-            android:text="@string/Gallery"
-            app:layout_constraintStart_toStartOf="@+id/staffPersonJobListAdapter"
-            app:layout_constraintTop_toBottomOf="@+id/staffPersonJobListAdapter" />
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/graphik_16sp_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:text="TextView" />
 
-        <TextView
-            android:id="@+id/similarFilms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/graphik"
-            android:text="@string/Gallery"
-            app:layout_constraintStart_toStartOf="@+id/staffPersonJobListAdapter"
-            app:layout_constraintTop_toBottomOf="@id/galleryListAdapter" />
-
-        <TextView
-            android:id="@+id/allActor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/all"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="@+id/actorText" />
-
-        <TextView
-            android:id="@+id/allPersonJob"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/all"
-            app:layout_constraintEnd_toEndOf="@+id/staffActorListAdapter"
-            app:layout_constraintTop_toTopOf="@+id/personJobText" />
-
-        <TextView
-            android:id="@+id/allGallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/all"
-            app:layout_constraintEnd_toEndOf="@+id/staffPersonJobListAdapter"
-            app:layout_constraintTop_toTopOf="@+id/galleryText" />
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/big_poster_gradient"
-            app:layout_constraintBottom_toBottomOf="@+id/bigPoster"
-            app:layout_constraintEnd_toEndOf="@+id/bigPoster"
-            app:layout_constraintStart_toStartOf="@+id/bigPoster"
-            app:layout_constraintTop_toBottomOf="@+id/bigPoster"
-            app:layout_constraintTop_toTopOf="@id/bigPoster">
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_marginBottom="48dp"
-                android:gravity="center"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/staffActorListAdapter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal"
-                android:layout_gravity="bottom|center_horizontal"
-              >
-                <FrameLayout
-                    android:layout_width="34dp"
-                    android:layout_height="34dp">
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toStartOf="@+id/actorText"
+                app:layout_constraintTop_toBottomOf="@+id/actorText"
+                app:spanCount="4" />
 
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_like" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="34dp"
-                    android:layout_height="34dp">
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_secure" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="34dp"
-                    android:layout_height="34dp">
-
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_invisible" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="34dp"
-                    android:layout_height="34dp">
-
-                    <ImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_share" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/showSetting"
-                    android:layout_width="34dp"
-                    android:layout_height="34dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_property" />
-                </FrameLayout>
-
-            </LinearLayout>
-            <TextView
-                android:id="@+id/country_duration_age"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/staffPersonJobListAdapter"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:textColor="#B5B5C9"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="@+id/staffActorListAdapter"
+                app:layout_constraintStart_toStartOf="@+id/staffActorListAdapter"
+                app:layout_constraintTop_toBottomOf="@+id/personJobText"
+                app:spanCount="2" />
 
-                tools:text="fghjkljhgf"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/galleryListAdapter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@+id/staffPersonJobListAdapter"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/staffPersonJobListAdapter"
+                app:layout_constraintTop_toBottomOf="@+id/galleryText"
+                app:spanCount="1" />
 
-                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/similarFilmsAdapter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@+id/galleryListAdapter"
+                app:layout_constraintStart_toStartOf="@+id/galleryListAdapter"
+                app:layout_constraintTop_toBottomOf="@+id/similarFilms" />
 
             <TextView
-                android:id="@+id/year_genres"
+                android:id="@+id/actorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:textColor="#B5B5C9"
-                tools:text="fghjkljhgf"
-                />
+                android:layout_marginTop="16dp"
+                style="@style/graphik_16sp_black_bold"
+                android:text="@string/Actor"
+                app:layout_constraintStart_toStartOf="@+id/season_and_series_value"
+                app:layout_constraintTop_toBottomOf="@+id/season_and_series_value" />
 
             <TextView
-                android:id="@+id/rating_name"
+                android:id="@+id/personJobText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:textColor="#B5B5C9"
-                tools:text="fghjkljhgf"
-                />
+                android:layout_marginTop="16dp"
+                style="@style/graphik_16sp_black_bold"
+                android:text="@string/PersonJob"
+                app:layout_constraintStart_toStartOf="@+id/staffActorListAdapter"
+                app:layout_constraintTop_toBottomOf="@+id/staffActorListAdapter" />
 
-        </FrameLayout>
+            <TextView
+                android:id="@+id/galleryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                style="@style/graphik_16sp_black_bold"
+                android:text="@string/Gallery"
+                app:layout_constraintStart_toStartOf="@+id/staffPersonJobListAdapter"
+                app:layout_constraintTop_toBottomOf="@+id/staffPersonJobListAdapter" />
+
+            <TextView
+                android:id="@+id/similarFilms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                style="@style/graphik_16sp_black_bold"
+                android:text="@string/similar"
+                app:layout_constraintStart_toStartOf="@+id/staffPersonJobListAdapter"
+                app:layout_constraintTop_toBottomOf="@id/galleryListAdapter" />
+
+            <TextView
+                android:id="@+id/allSimilar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+                style="@style/graphik_14sp_blue_bold"
+                app:layout_constraintEnd_toEndOf="@+id/staffPersonJobListAdapter"
+                app:layout_constraintTop_toTopOf="@+id/similarFilms" />
+
+            <TextView
+                android:id="@+id/allActor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+                style="@style/graphik_14sp_blue_bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/actorText" />
+
+            <TextView
+                android:id="@+id/allPersonJob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+                style="@style/graphik_14sp_blue_bold"
+                app:layout_constraintEnd_toEndOf="@+id/staffActorListAdapter"
+                app:layout_constraintTop_toTopOf="@+id/personJobText" />
+
+            <TextView
+                android:id="@+id/allGallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+                style="@style/graphik_14sp_blue_bold"
+                app:layout_constraintEnd_toEndOf="@+id/staffPersonJobListAdapter"
+                app:layout_constraintTop_toTopOf="@+id/galleryText" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/big_poster_gradient"
+                android:gravity="center|bottom"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/bigPoster"
+                app:layout_constraintEnd_toEndOf="@+id/bigPoster"
+                app:layout_constraintStart_toStartOf="@+id/bigPoster"
+                app:layout_constraintTop_toBottomOf="@+id/bigPoster"
+                app:layout_constraintTop_toTopOf="@id/bigPoster">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/rating_name"
+                        style="@style/graphik_12sp_grey1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center"
+                        android:maxLength="40"
+                        app:height_weight="0.8"
+                        tools:text="fghjkljhgf" />
+
+                    <TextView
+                        android:id="@+id/year_genres"
+                        style="@style/graphik_12sp_grey1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:maxLength="40"
+                        tools:text="fghjkljhgf" />
+
+                    <TextView
+                        android:id="@+id/country_duration_age"
+                        style="@style/graphik_12sp_grey1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:maxLength="40"
+                        tools:text="fdghjgggggggggggggggggggggggggggggggggggggggggggggggggggggggggkljhgf" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="48dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp">
+
+                        <ImageView
+                            android:id="@+id/film_like_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icon_like" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp">
+
+                        <ImageView
+                            android:id="@+id/film_favorites_icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icon_secure" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp">
+
+                        <ImageView
+                            android:id="@+id/filmViedIcon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icon_invisible" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="34dp"
+                        android:layout_height="34dp">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icon_share" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/showSetting"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/icon_property" />
+                    </FrameLayout>
+
+                </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:id="@+id/season_and_series_name"
+                style="@style/graphik_18sp_black_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/season_and_series"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/season_and_series_value"
+                style="@style/graphik_12sp_grey3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="@+id/season_and_series_name"
+                app:layout_constraintTop_toBottomOf="@+id/season_and_series_name"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/season_and_series_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all"
+                style="@style/graphik_14sp_blue_bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/season_and_series_name" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/error_massage"
+            layout="@layout/error_page"
+            android:visibility="gone"/>
+    </FrameLayout>
 </ScrollView>

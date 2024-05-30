@@ -1,16 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.roman.finalkinopoisk.presentation.MainFragment">
+
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+   android:visibility="gone"
+       >
 
 
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/textView16"
+            style="@style/graphik_16sp_black"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            tools:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/loaderImageView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/textView20"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            tools:text="TextView"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/loaderImageView3"
+            android:layout_width="110dp"
+            android:layout_height="156dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/loaderImageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/loaderImageView"
+            android:layout_width="110dp"
+            android:layout_height="156dp"
+            app:layout_constraintEnd_toStartOf="@+id/loaderImageView2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/loaderImageView3"
+            app:layout_constraintTop_toTopOf="@+id/loaderImageView3" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/loaderImageView2"
+            android:layout_width="110dp"
+            android:layout_height="156dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/loaderImageView"
+            app:layout_constraintTop_toTopOf="@+id/loaderImageView" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/textView176"
+            style="@style/graphik_16sp_black"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            tools:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/loaderImageView3"
+            app:layout_constraintTop_toBottomOf="@+id/loaderImageView3" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/loaderImageView13"
+            android:layout_width="110dp"
+            android:layout_height="156dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/loaderImageView12"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView176" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/loaderImageView12"
+            android:layout_width="110dp"
+            android:layout_height="156dp"
+            app:layout_constraintEnd_toStartOf="@+id/loaderImageView14"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/loaderImageView13"
+            app:layout_constraintTop_toTopOf="@+id/loaderImageView13" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/loaderImageView14"
+            android:layout_width="110dp"
+            android:layout_height="156dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/loaderImageView12"
+            app:layout_constraintTop_toTopOf="@+id/loaderImageView12" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+   android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.roman.finalkinopoisk.presentation.homeList.MainFragment">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/app_name"
+    style="@style/name_app"/>
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="32dp"
         android:id="@+id/homeAdapter"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,4 +131,10 @@
         app:layout_constraintTop_toTopOf="parent"
 
         tools:listitem="@layout/home_list"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+    <include
+        android:id="@+id/error_massage"
+        layout="@layout/error_page"
+        android:visibility="gone"/>
+</FrameLayout>

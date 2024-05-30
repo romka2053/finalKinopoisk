@@ -9,10 +9,15 @@ import com.bumptech.glide.Glide
 import com.roman.finalkinopoisk.databinding.FilmsListAllBinding
 import com.roman.finalkinopoisk.entity.Films
 
-class FilmsListSearchAdapter() :
+class FilmsListSearchAdapter(private val onClick: (Int) -> Unit) :
     PagingDataAdapter<Films, MyFilmsSearchViewHolder>(DiffUtilItemCallback()) {
     override fun onBindViewHolder(holder: MyFilmsSearchViewHolder, position: Int) {
-        getItem(position)?.let { holder.bind(it) }
+        getItem(position)?.let { item ->
+
+            holder.binding.root.setOnClickListener {
+                onClick(item.id)
+            }
+            holder.bind(item) }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyFilmsSearchViewHolder {
@@ -26,6 +31,7 @@ class FilmsListSearchAdapter() :
 class MyFilmsSearchViewHolder(val binding: FilmsListAllBinding) : ViewHolder(binding.root) {
     fun bind(film: Films) {
         with(binding) {
+
             nameFilmAll.text = film.nameRu
 
 

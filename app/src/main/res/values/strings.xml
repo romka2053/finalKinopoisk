@@ -1,24 +1,28 @@
 <resources>
-    <string name="app_name">Кинопоиск</string>
-    <string name="premiers">Премьеры</string>
-    <string name="all">Все</string>
-    <string name="popular">Топ Популярных</string>
-    <string name="TOP250">ТОП 250</string>
-    <string name="Actor">В фильме снимались</string>
-    <string name="PersonJob">Над фильмом работали</string>
-    <string name="Gallery">Галерея</string>
-    <string name="SimilarFilms">Похожие фильмы</string>
-    <string name="add_in_collection">Добавить в коллекцию</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Kinopoisk</string>
+    <string name="premiers">Premiers</string>
+    <string name="all">All</string>
+    <string name="popular">Top popular</string>
+    <string name="TOP250">Top 250</string>
+    <string name="Actor">The film was filmed</string>
+    <string name="PersonJob">We were working on the film</string>
+    <string name="Gallery">Gallery</string>
+    <string name="SimilarFilms">Similar films</string>
+    <string name="add_in_collection">Add to collection</string>
     <string name="the_best">The best</string>
     <string name="filmography">Filmography</string>
     <string name="to_the_list">To the list</string>
     <plurals name="filmographyCount">
         <item quantity="one">%d film</item>
-        <item quantity="few">%d films</item>
-        <item quantity="many">%d films</item>
         <item quantity="other">%d films</item>
+    </plurals>
+    <plurals name="seasonsCount">
+        <item quantity="one">%d season</item>
+        <item quantity="other">%d seasons</item>
+    </plurals>
+    <plurals name="seriesCount">
+        <item quantity="one">%d episode</item>
+        <item quantity="other">%d episodes</item>
     </plurals>
     <string name="setting_search">Setting search</string>
     <string name="show">Show</string>
@@ -27,4 +31,43 @@
     <string name="year">Year</string>
     <string name="rating">Rating</string>
     <string name="any">Any</string>
+    <string name="save">Save</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="period_from">Search period from</string>
+    <string name="period_to">Search period to</string>
+    <string name="sorting">Sorting</string>
+    <string name="no_viewed">Not viewed</string>
+    <string name="date_sort">Date</string>
+    <string name="popular_sort">Popular</string>
+    <string name="rating_sort">Rating</string>
+    <string name="viewed">Viewed</string>
+    <string name="collections">Collections</string>
+    <string name="create_collection">Create my collection</string>
+    <string name="clear_history">Clear history</string>
+    <string name="show_all">Show all</string>
+    <string name="were_you_interested">Were you interested</string>
+    <string name="not_element_in_collection">Not element in collection</string>
+    <string name="name_new_collection_text">Come up with a name for your new collection</string>
+    <string name="error">Error</string>
+    <string name="error_massage">An error occurred while processing the request</string>
+    <string name="season_and_series">Seasons and series</string>
+    <string name="seasons">Seasons</string>
+    <string name="episode">Episode</string>
+    <string name="similar">Similar</string>
+    <string name="gallery">Gallery</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_collection">Delete collection</string>
+    <string name="delete_collection_text">Do you want to delete a collection?</string>
+    <string name="delete_history">Clear history?</string>
+    <string name="delete_history_text">Want to clear your browsing history?</string>
+    <string name="input_country">Input country</string>
+    <string name="input_genre">Input genre</string>
+    <string name="films">Films</string>
+    <string name="serials">Serials</string>
+    <string name="date">Date</string>
+    <string name="films_actor">Films,Actors</string>
+    <string name="error_loading">Сheck internet connection</string>
+    <string name="replay">Replay</string>
 </resources>

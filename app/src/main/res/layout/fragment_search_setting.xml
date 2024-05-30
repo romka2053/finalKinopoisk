@@ -7,67 +7,68 @@
     tools:context=".presentation.search.SearchSettingFragment">
 
 
-
-
     <TextView
         android:id="@+id/textView13"
+        style="@style/top_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/setting_search"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:src="@drawable/baseline_navigate_before_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/show"
+        style="@style/graphik_12sp_grey3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup2"
+
+    <TextView
+        android:id="@+id/sortingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="start"
+        style="@style/graphik_12sp_grey3"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sorting"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12">
+        app:layout_constraintTop_toBottomOf="@+id/groupRating" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/all" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Фильмы" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Сериалы" />
-    </com.google.android.material.chip.ChipGroup>
     <FrameLayout
         android:id="@+id/groupCountry"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/collection_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup2"
-        android:background="@drawable/collection_frame">
+        app:layout_constraintTop_toBottomOf="@+id/allType">
 
         <TextView
             android:id="@+id/countrySetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/graphik_16sp_black"
             android:layout_gravity="center_vertical"
             android:text="@string/country" />
 
@@ -75,6 +76,7 @@
             android:id="@+id/countrySettingValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/graphik_14sp_grey3"
             android:layout_gravity="center_vertical|end"
             android:text="TextView" />
     </FrameLayout>
@@ -83,16 +85,17 @@
         android:id="@+id/groupGenres"
         android:layout_width="0dp"
         android:layout_height="40dp"
+        android:background="@drawable/collection_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupCountry"
-        android:background="@drawable/collection_frame">
+        app:layout_constraintTop_toBottomOf="@+id/groupCountry">
 
         <TextView
             android:id="@+id/genreSetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/graphik_16sp_black"
             android:layout_gravity="center_vertical"
             android:text="@string/genre" />
 
@@ -100,6 +103,7 @@
             android:id="@+id/genreSettingValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/graphik_14sp_grey3"
             android:layout_gravity="center_vertical|end"
             android:text="TextView" />
     </FrameLayout>
@@ -108,16 +112,17 @@
         android:id="@+id/groupYear"
         android:layout_width="0dp"
         android:layout_height="40dp"
+        android:background="@drawable/collection_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupGenres"
-        android:background="@drawable/collection_frame">
+        app:layout_constraintTop_toBottomOf="@+id/groupGenres">
 
         <TextView
             android:id="@+id/yearSetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/graphik_16sp_black"
             android:layout_gravity="center_vertical"
             android:text="@string/year" />
 
@@ -125,50 +130,164 @@
             android:id="@+id/yearSettingValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/graphik_14sp_grey3"
             android:layout_gravity="center_vertical|end"
             android:text="TextView" />
     </FrameLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:id="@+id/groupRating"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/collection_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupYear"
 
-        android:background="@drawable/collection_frame">
+        app:layout_constraintTop_toBottomOf="@+id/groupYear">
 
         <TextView
             android:id="@+id/ratingSetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/year"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            style="@style/graphik_16sp_black"
+            android:layout_gravity="start"
+            android:text="@string/rating" />
 
         <TextView
             android:id="@+id/ratingSettingValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|end"
-            android:text="@string/any"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            style="@style/graphik_14sp_grey3"
+            android:layout_gravity="end"
+            android:text="@string/any" />
 
         <com.google.android.material.slider.RangeSlider
             android:id="@+id/ratingSlider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:valueFrom="0.0"
-            android:valueTo="10.0"
+            android:layout_gravity="bottom|center"
+            android:layout_marginTop="32dp"
             android:contentDescription="@string/rating"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ratingSetting" />
+            android:stepSize="0.1"
+            android:valueFrom="0.0"
+            android:valueTo="10.0" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/viewedFilmSettingIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/icon_invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/viewedFilmSettingText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        style="@style/graphik_16sp_black"
+        android:paddingStart="16dp"
+        android:text="@string/no_viewed"
+        app:layout_constraintBottom_toBottomOf="@+id/viewedFilmSettingIcon"
+        app:layout_constraintEnd_toEndOf="@+id/rating_sort"
+        app:layout_constraintStart_toEndOf="@+id/viewedFilmSettingIcon"
+        app:layout_constraintTop_toTopOf="@+id/viewedFilmSettingIcon" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/allType"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="false"
+        style="@style/button_left_group"
+        android:layout_marginStart="16dp"
+        android:text="@string/all"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/filmsType"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/filmsType"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:text="@string/films"
+        android:textAllCaps="false"
+        style="@style/button_center_group"
+        app:layout_constraintEnd_toStartOf="@+id/serialType"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/allType"
+        app:layout_constraintTop_toTopOf="@+id/allType" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/serialType"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:text="@string/serials"
+        android:textAllCaps="false"
+        style="@style/button_right_group"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/filmsType"
+        app:layout_constraintTop_toTopOf="@+id/filmsType" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/date_sort"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="false"
+        style="@style/button_left_group"
+        android:layout_marginStart="16dp"
+        android:text="@string/date"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/popular_sort"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sortingText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/popular_sort"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:text="@string/popular_sort"
+        android:textAllCaps="false"
+        style="@style/button_center_group"
+        app:layout_constraintEnd_toStartOf="@+id/serialType"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/date_sort"
+        app:layout_constraintTop_toTopOf="@+id/date_sort" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rating_sort"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:text="@string/rating"
+        android:textAllCaps="false"
+        style="@style/button_right_group"
+       android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/popular_sort"
+        app:layout_constraintTop_toTopOf="@+id/popular_sort" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/collection_frame"
+        app:layout_constraintTop_toBottomOf="@id/date_sort"
+       app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

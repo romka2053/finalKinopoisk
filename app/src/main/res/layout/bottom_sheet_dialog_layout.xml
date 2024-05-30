@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="32dp">
@@ -10,23 +14,22 @@
         android:id="@+id/imagePosterAll2"
         android:layout_width="111dp"
         android:layout_height="156dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/poster"
         android:clipToOutline="true"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/close_icon"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/nameFilmAll2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
         android:ellipsize="end"
         android:lines="1"
+        style="@style/graphik_14sp_bold_black"
         app:layout_constraintBottom_toBottomOf="@+id/imagePosterAll2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,30 +39,37 @@
 
     <TextView
         android:id="@+id/yearGenreFilm2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/nameFilmAll2"
         app:layout_constraintStart_toStartOf="@+id/nameFilmAll2"
-        app:layout_constraintTop_toBottomOf="@+id/nameFilmAll2" />
+        app:layout_constraintTop_toBottomOf="@+id/nameFilmAll2"
+        tools:text="TextView" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
+        android:paddingStart="16dp"
         android:background="@drawable/collection_frame"
         android:lines="1"
-        android:paddingStart="64dp"
         android:text="@string/add_in_collection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagePosterAll2" />
+        app:layout_constraintTop_toBottomOf="@+id/imagePosterAll2"
+        app:drawableStartCompat="@drawable/add_collection"
+        android:drawablePadding="26dp"
+        android:gravity="center_vertical"
+        style="@style/graphik_16sp_black"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/listCollection"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,5 +80,16 @@
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/collection_list_item" />
 
+    <ImageView
+        android:id="@+id/close_icon"
+        android:layout_width="wrap_content"
+        android:layout_margin="16dp"
+
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_close_24" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

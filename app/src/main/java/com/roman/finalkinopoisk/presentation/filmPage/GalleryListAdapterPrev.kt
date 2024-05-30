@@ -5,15 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.roman.finalkinopoisk.FilmsListViewHolder
-import com.roman.finalkinopoisk.databinding.FilmsListBinding
 import com.roman.finalkinopoisk.databinding.GalleryListPreviewBinding
-import com.roman.finalkinopoisk.entity.Films
-import com.roman.finalkinopoisk.entity.FilmsList
 import com.roman.finalkinopoisk.entity.Gallery
 import com.roman.finalkinopoisk.entity.GalleryItems
 
-class GalleryListAdapter:Adapter<GalleryListViewHolder> (){
+class GalleryListAdapterPrev:Adapter<GalleryListViewHolderPrev> (){
 
     private var data: List<GalleryItems> = emptyList()
     private var total=0
@@ -28,9 +24,9 @@ class GalleryListAdapter:Adapter<GalleryListViewHolder> (){
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryListViewHolderPrev {
         val binding = GalleryListPreviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return GalleryListViewHolder(binding)
+        return GalleryListViewHolderPrev(binding)
 
     }
 
@@ -39,20 +35,20 @@ class GalleryListAdapter:Adapter<GalleryListViewHolder> (){
         else 20
     }
 
-    override fun onBindViewHolder(holder: GalleryListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: GalleryListViewHolderPrev, position: Int) {
         holder.bind(data[position])
     }
 }
 
-class GalleryListViewHolder(private val binding: GalleryListPreviewBinding ):ViewHolder(binding.root)
+class GalleryListViewHolderPrev(private val binding: GalleryListPreviewBinding ):ViewHolder(binding.root)
 {
 
     fun bind(data: GalleryItems){
         with(binding){
-            Glide.with(galleryItem)
+            Glide.with(galleryItemPrev)
                 .load(data.previewUrl)
                 .centerCrop()
-                .into(galleryItem)
+                .into(galleryItemPrev)
 
         }
 

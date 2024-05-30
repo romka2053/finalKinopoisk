@@ -10,11 +10,11 @@ data class FilmsWithСollections (
        val filmRoom:FilmFull,
     @Relation(
         parentColumn = "id",
-        entityColumn = "id",
+        entityColumn = "name_collection",
         associateBy = Junction(
             FilmCollection::class,
             parentColumn = "film_id",
-            entityColumn = "collection_id"
+            entityColumn = "name_collection"
         )
     )
     val collection:List<CollectionRoom>

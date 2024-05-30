@@ -3,7 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
-
+    id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -48,8 +49,11 @@ android {
 }
 
 dependencies {
+        //firebase
+    implementation platform('com.google.firebase:firebase-bom:22.0.0')
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
 
-
+    implementation 'io.github.elye:loaderviewlibrary:3.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.4.0'
     implementation 'com.squareup.moshi:moshi:1.13.0'

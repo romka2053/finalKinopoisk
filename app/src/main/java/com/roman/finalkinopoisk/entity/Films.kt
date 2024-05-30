@@ -3,19 +3,31 @@ package com.roman.finalkinopoisk.entity
 import androidx.room.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.roman.finalkinopoisk.presentation.SettingGetFilms
 import com.squareup.moshi.Json
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CategoryFilms(
 
     val filmsList: FilmsList,
-    val category: String
+    val category: SettingGetFilms
 ) {
 
 }
 
+interface GenreAndCountryList{
+    val genres:List<GenreAndCountry>
+    val countries:List<GenreAndCountry>
+}
+interface GenreAndCountry{
+    val id:Int
+    val name:String
+}
 open class FilmsList (
     open val total: Int,
-    open val filmsList: List<Films>
+    open val filmsList: List<Films>,
+    open val totalPages:Int?=0
 )
 
 interface Films {
@@ -28,6 +40,7 @@ interface Films {
     val genres:List<Genre>?
     val countries:List<Country>?
 }
+
 
 @Entity(tableName = "films")
 open class FilmFull @JvmOverloads constructor(
@@ -50,10 +63,20 @@ open class FilmFull @JvmOverloads constructor(
     open val shortDescription: String?,
     @ColumnInfo(name = "posterUrl")
     open val posterUrl: String?,
+     override val genres: List<Genre>,
+     override val countries:List<Country>?,
+    @ColumnInfo(name="type")
+    open val serial:Boolean,
+    @ColumnInfo(name = "filmViewed")
+    open val filmViewed: Boolean=false,
+    @ColumnInfo(name="dateSave")
+    open val dateSave:Long= Calendar.getInstance().timeInMillis,
 
-     override val genres: List<Genre>?,
-     override val countries:List<Country>?
 ) : Films
+{
+
+}
+
 
 
 open class Country (

@@ -51,6 +51,7 @@ class StaffListAdapter(private val clickStaff:(Int)->Unit): RecyclerView.Adapter
             .centerCrop()
             .into(staffUrlPoster)
           staffName.text=data[position].nameRu
+            textView4.text=data[position].nameEn
         }
 
     }

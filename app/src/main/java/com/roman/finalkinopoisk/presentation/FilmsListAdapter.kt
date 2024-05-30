@@ -4,29 +4,32 @@ package com.roman.finalkinopoisk
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
+import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.bumptech.glide.Glide
 import com.roman.finalkinopoisk.databinding.AllFilmsButtonBinding
 import com.roman.finalkinopoisk.databinding.FilmsListBinding
+import com.roman.finalkinopoisk.entity.CategoryFilms
 import com.roman.finalkinopoisk.entity.Films
-import com.roman.finalkinopoisk.entity.FilmsList
-import com.roman.finalkinopoisk.presentation.MainFragment
+import com.roman.finalkinopoisk.presentation.SettingGetFilms
 
-class FilmsListAdapter(private val onClick: (Int) -> Unit) : Adapter<ViewHolder>() {
+class FilmsListAdapter(private val onClick: (Int) -> Unit,private val onClickAll:(SettingGetFilms)->Unit) : Adapter<ViewHolder>() {
     private var data: List<Films> = emptyList()
     private var total=0
+    private lateinit var category:SettingGetFilms
 
 
-    fun setData(data: FilmsList) {
-        this.data = data.filmsList.shuffled()
-        total=data.total
+    fun setData(data: CategoryFilms) {
+
+        this.data = data.filmsList.filmsList
+        category=data.category
+        total=data.filmsList.total
         notifyDataSetChanged()
 
 
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -53,8 +56,11 @@ class FilmsListAdapter(private val onClick: (Int) -> Unit) : Adapter<ViewHolder>
             TYPE_ITEM_ALL
         }
     }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         when(holder){
+
             is FilmsListViewHolder->{
                 holder.bind(data[position])
                 holder.binding.root.setOnClickListener {
@@ -62,7 +68,11 @@ class FilmsListAdapter(private val onClick: (Int) -> Unit) : Adapter<ViewHolder>
 
                 }
             }
-            is AllButtonViewHolder->{}
+            is AllButtonViewHolder->{
+                holder.binding.root.setOnClickListener {
+                    onClickAll(category)
+                }
+            }
         }
 
 
@@ -86,6 +96,7 @@ class FilmsListAdapter(private val onClick: (Int) -> Unit) : Adapter<ViewHolder>
 class FilmsListViewHolder(val binding:FilmsListBinding) : ViewHolder(binding.root)
 {
     fun bind(data:Films){
+
         with(binding) {
             nameFilm.text = data.nameRu.toString()
             data.rating?.let {
@@ -101,4 +112,4 @@ class FilmsListViewHolder(val binding:FilmsListBinding) : ViewHolder(binding.roo
     }
 }
 
-class AllButtonViewHolder( binding:AllFilmsButtonBinding) : ViewHolder(binding.root)
+class AllButtonViewHolder( val binding:AllFilmsButtonBinding) : ViewHolder(binding.root)

@@ -16,26 +16,42 @@
         <action
             android:id="@+id/action_searchItem_to_searchSettingFragment"
             app:destination="@id/searchSettingFragment" />
+        <action
+            android:id="@+id/action_searchItem_to_filmPage"
+            app:destination="@id/filmPage" />
     </fragment>
 
     <fragment
         android:id="@+id/profileItem"
-        android:name="com.roman.finalkinopoisk.presentation.ProfileFragment"
+        android:name="com.roman.finalkinopoisk.presentation.profile.ProfileFragment"
         android:label="fragment_main"
-        />
+        >
+        <action
+            android:id="@+id/action_profileItem_to_filmPage"
+            app:destination="@id/filmPage" />
+        <action
+            android:id="@+id/action_profileItem_to_staffPageFragment"
+            app:destination="@id/staffPageFragment" />
+        <action
+            android:id="@+id/action_profileItem_to_filmsListInNetworkFragment"
+            app:destination="@id/filmsListInNetworkFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.roman.finalkinopoisk.presentation.MainFragment"
+        android:name="com.roman.finalkinopoisk.presentation.homeList.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_filmPage"
             app:destination="@id/filmPage" />
+        <action
+            android:id="@+id/action_mainFragment_to_filmsListInNetworkFragment"
+            app:destination="@id/filmsListInNetworkFragment" />
     </fragment>
     <fragment
         android:id="@+id/filmPage"
-        android:name="com.roman.finalkinopoisk.presentation.FilmPageFragment"
+        android:name="com.roman.finalkinopoisk.presentation.filmPage.FilmPageFragment"
         android:label="film_page"
         tools:layout="@layout/fragment_film_page" >
         <action
@@ -44,10 +60,20 @@
         <action
             android:id="@+id/action_filmPage_to_staffPageFragment"
             app:destination="@id/staffPageFragment" />
+        <action
+            android:id="@+id/action_filmPage_to_seasonsAndSeriesFragment"
+            app:destination="@id/seasonsAndSeriesFragment"
+            />
+        <action
+            android:id="@+id/action_filmPage_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+        <action
+            android:id="@+id/action_filmPage_to_filmsListInNetworkFragment"
+            app:destination="@id/filmsListInNetworkFragment" />
     </fragment>
     <fragment
         android:id="@+id/staffPageFragment"
-        android:name="com.roman.finalkinopoisk.presentation.StaffPageFragment"
+        android:name="com.roman.finalkinopoisk.presentation.staff.StaffPageFragment"
         android:label="fragment_staff_page"
         tools:layout="@layout/fragment_staff_page" >
         <action
@@ -59,7 +85,7 @@
     </fragment>
     <fragment
         android:id="@+id/filmographyFragment"
-        android:name="com.roman.finalkinopoisk.presentation.FilmographyFragment"
+        android:name="com.roman.finalkinopoisk.presentation.filmography.FilmographyFragment"
         android:label="fragment_filmography"
         tools:layout="@layout/fragment_filmography" >
         <action
@@ -71,5 +97,51 @@
         android:id="@+id/searchSettingFragment"
         android:name="com.roman.finalkinopoisk.presentation.search.SearchSettingFragment"
         android:label="fragment_search_setting"
-        tools:layout="@layout/fragment_search_setting" />
+        tools:layout="@layout/fragment_search_setting" >
+        <action
+            android:id="@+id/action_searchSettingFragment_to_countriesGenresFragment"
+            app:destination="@id/countriesGenresFragment"
+
+            />
+        <action
+            android:id="@+id/action_searchSettingFragment_to_yearFromToFragment"
+            app:destination="@id/yearFromToFragment"
+
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/countriesGenresFragment"
+        android:name="com.roman.finalkinopoisk.presentation.search.CountriesGenresFragment"
+        android:label="fragment_countries_genres"
+        tools:layout="@layout/fragment_countries_genres" />
+    <fragment
+        android:id="@+id/yearFromToFragment"
+        android:name="com.roman.finalkinopoisk.presentation.search.YearFromToFragment"
+        android:label="fragment_year_from_to"
+        tools:layout="@layout/fragment_year_from_to" >
+        <action
+            app:popUpTo="@id/searchItem"
+            android:id="@+id/action_yearFromToFragment_to_searchSettingFragment"
+            app:destination="@id/searchSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmsListInNetworkFragment"
+        android:name="com.roman.finalkinopoisk.presentation.pagingFilms.FilmsListInNetworkFragment"
+        android:label="fragment_films_list_in_network"
+        tools:layout="@layout/fragment_films_list_in_network" >
+        <action
+            android:id="@+id/action_filmsListInNetworkFragment_to_filmPage"
+            app:destination="@id/filmPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/seasonsAndSeriesFragment"
+        android:name="com.roman.finalkinopoisk.presentation.seasonsAndSeries.SeasonsAndSeriesFragment"
+        android:label="fragment_seasons_and_series"
+        tools:layout="@layout/fragment_seasons_and_series"
+   />
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.roman.finalkinopoisk.presentation.gallery.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" />
 </navigation>

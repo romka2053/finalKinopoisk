@@ -26,12 +26,14 @@ class DataBaseModule {
     fun provideStaffDao(staffDB:DataBaseFilms):StaffDao{
         return staffDB.staffDao()
     }
+
     @Provides
     @Singleton
     fun ProvideAppDatabase(@ApplicationContext appContext: Context): DataBaseFilms {
-        return Room.inMemoryDatabaseBuilder(
+        return Room.databaseBuilder(
             appContext,
-            DataBaseFilms::class. java
+            DataBaseFilms::class. java,
+            "Data_base"
         ).build()
     }
 
